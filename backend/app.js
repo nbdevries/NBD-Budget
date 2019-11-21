@@ -3,10 +3,17 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-
 var app = express();
+
+// API setup - required libraries
+var cors = require('cors');
+var bodyParser = require('body-parser');
+app.use(cors());
+app.use(bodyParser.json());
+
+// API setup - routing
+var ExpensesRouter = require('./routes/ExpensesRouter');
+app.use('/expenses', ExpensesRouter);
 
 app.use(logger('dev'));
 app.use(express.json());

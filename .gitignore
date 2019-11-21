@@ -1,3 +1,13 @@
+#
+# Begin customized .gitignore
+#
+
+database/seed.sql
+
+#
+# Begin default Node .gitignore
+#
+
 # Logs
 logs
 *.log
