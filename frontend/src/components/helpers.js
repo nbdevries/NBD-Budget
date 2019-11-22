@@ -1,3 +1,3 @@
 export const apiEndpoint = (endpoint) => {
-  return "http://localhost:8080/" + endpoint
+  return "http://192.168.16.51:8080/" + endpoint
 }

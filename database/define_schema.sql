@@ -1,6 +1,7 @@
 USE `nbd_budget`;
 
-DROP TABLE IF EXISTS `expense_category`;
+DROP TABLE IF EXISTS `expense_transactions`;
+DROP TABLE IF EXISTS `expense_categories`;
 DROP TABLE IF EXISTS `expenses`;
 DROP TABLE IF EXISTS `incomes`;
 DROP TABLE IF EXISTS `debts`;
@@ -12,12 +13,21 @@ CREATE TABLE `expenses` (
 	PRIMARY KEY (`id`)
 );
 
-CREATE TABLE `expense_category` (
+CREATE TABLE `expense_categories` (
 	`id` INT AUTO_INCREMENT UNIQUE NOT NULL,
     `expense_id` INT NOT NULL,
     `name` TEXT,
 	PRIMARY KEY (`id`),
     FOREIGN KEY (`expense_id`) REFERENCES `expenses`(`id`)
+);
+
+CREATE TABLE `expense_transactions` (
+	`id` INT AUTO_INCREMENT UNIQUE NOT NULL,
+    `expense_category_id` INT NOT NULL,
+    `name` TEXT,
+    `total` FLOAT,
+	PRIMARY KEY (`id`),
+    FOREIGN KEY (`expense_category_id`) REFERENCES `expense_categories`(`id`)
 );
 
 CREATE TABLE `incomes` (
