@@ -30,6 +30,11 @@ class DollarInput extends Component {
     }
   }
 
+  handleFocus = (e) => {
+    e.preventDefault()
+    e.target.select()
+  }
+
   render () {
 
     const defaultStyle = {
@@ -52,7 +57,8 @@ class DollarInput extends Component {
     return (
       <div style={defaultStyle}>
         <span style={dollarSignStyle}>$</span>
-        <input style={inputStyle} value={this.state.value || ""} type="number" onChange={this.handleChange} onKeyDown={this.handleUpdate}/>
+        <input style={inputStyle} value={this.state.value || ""} type="number"
+               onChange={this.handleChange} onKeyDown={this.handleUpdate} onFocus={this.handleFocus}/>
       </div>
     )
   }

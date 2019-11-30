@@ -12,8 +12,16 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // API setup - routing
-var ExpensesRouter = require('./routes/ExpensesRouter');
-app.use('/expenses', ExpensesRouter);
+var ExpensesRouter = require('./routes/ExpensesRouter')
+var IncomesRouter = require('./routes/IncomesRouter')
+var DebtsRouter = require('./routes/DebtsRouter')
+var DebtObligationsRouter = require('./routes/DebtObligationsRouter')
+var OverviewRouter = require('./routes/OverviewRouter')
+app.use('/expenses', ExpensesRouter)
+app.use('/incomes', IncomesRouter)
+app.use('/debts', DebtsRouter)
+app.use('/debtobligations', DebtObligationsRouter)
+app.use('/overview', OverviewRouter)
 
 app.use(logger('dev'));
 app.use(express.json());

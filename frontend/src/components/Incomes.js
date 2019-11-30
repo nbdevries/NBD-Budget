@@ -3,12 +3,12 @@ import React, { Component } from 'react'
 import DollarList from './DollarList'
 
 const propsToSend = {
-  mainRoute: "expenses",
-  itemName: "Expense",
+  mainRoute: "incomes",
+  itemName: "Income",
   timeFrame: "monthly"
 }
 
-class Expenses extends Component {
+class Incomes extends Component {
   render () {
     return (
       <DollarList {...propsToSend}/>
@@ -16,4 +16,4 @@ class Expenses extends Component {
   }
 }
 
-export default Expenses;
+export default Incomes;

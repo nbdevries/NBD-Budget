@@ -1,33 +1,33 @@
 var express = require('express');
 var router = express.Router();
-var Expenses = require('../models/Expenses');
+var DebtObligations = require('../models/DebtObligations');
 
 router.get('/', function(req, res, next){
-  Expenses.get(function(err,result){
+  DebtObligations.get(function(err,result){
     if (err) { res.json(err); } else { res.json(result); }
   })
 })
 
 router.post('/new', function(req, res, next){
-  Expenses.new(req.body, function(err,result){
+  DebtObligations.new(req.body, function(err,result){
     if (err) { res.json(err); } else { res.json(result); }
   })
 })
 
 router.post('/delete', function(req, res, next){
-  Expenses.delete(req.body, function(err,result){
+  DebtObligations.delete(req.body, function(err,result){
     if (err) { res.json(err); } else { res.json(result); }
   })
 })
 
 router.post('/update/value', function(req, res, next){
-  Expenses.updateValue(req.body, function(err,result){
+  DebtObligations.updateValue(req.body, function(err,result){
     if (err) { res.json(err); } else { res.json(result); }
   })
 })
 
 router.post('/update/name', function(req, res, next){
-  Expenses.updateName(req.body, function(err,result){
+  DebtObligations.updateName(req.body, function(err,result){
     if (err) { res.json(err); } else { res.json(result); }
   })
 })

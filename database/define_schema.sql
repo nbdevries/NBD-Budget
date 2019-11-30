@@ -4,6 +4,7 @@ DROP TABLE IF EXISTS `expense_transactions`;
 DROP TABLE IF EXISTS `expense_categories`;
 DROP TABLE IF EXISTS `expenses`;
 DROP TABLE IF EXISTS `incomes`;
+DROP TABLE IF EXISTS `debt_obligations`;
 DROP TABLE IF EXISTS `debts`;
 
 CREATE TABLE `expenses` (
@@ -34,6 +35,13 @@ CREATE TABLE `incomes` (
 	`id` INT AUTO_INCREMENT UNIQUE NOT NULL,
     `name` TEXT,
     `monthly_profit` FLOAT,
+	PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `debt_obligations` (
+	`id` INT AUTO_INCREMENT UNIQUE NOT NULL,
+    `name` TEXT,
+    `monthly_total` FLOAT,
 	PRIMARY KEY (`id`)
 );
 

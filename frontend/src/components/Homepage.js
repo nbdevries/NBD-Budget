@@ -1,16 +1,19 @@
 import React, { Component } from 'react'
 
 import Track from './Track'
+import Overview from './Overview'
 import Expenses from './Expenses'
+import Incomes from './Incomes'
+import Debts from './Debts'
 
 import { ReactComponent as BurgerMenuIcon } from '../media/burger-menu-icon.svg'
 
 const menuItems = [
   { name: "Track", component: <Track/> },
-  { name: "Overview", component: null },
+  { name: "Overview", component: <Overview/> },
   { name: "Monthly Expenses", component: <Expenses/> },
-  { name: "Monthly Incomes", component: null },
-  { name: "Overall Debts", component: null }
+  { name: "Monthly Incomes", component: <Incomes/> },
+  { name: "Overall Debts", component: <Debts/> }
 ]
 
 const initialState = {
