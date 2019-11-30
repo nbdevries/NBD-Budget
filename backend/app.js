@@ -15,13 +15,15 @@ app.use(bodyParser.json());
 var ExpensesRouter = require('./routes/ExpensesRouter')
 var IncomesRouter = require('./routes/IncomesRouter')
 var DebtsRouter = require('./routes/DebtsRouter')
-var DebtObligationsRouter = require('./routes/DebtObligationsRouter')
+var DebtObligationsRouter = require('./routes/ObligationsRouter')
 var OverviewRouter = require('./routes/OverviewRouter')
+var TrackRouter = require('./routes/TrackRouter')
 app.use('/expenses', ExpensesRouter)
 app.use('/incomes', IncomesRouter)
 app.use('/debts', DebtsRouter)
-app.use('/debtobligations', DebtObligationsRouter)
+app.use('/obligations', DebtObligationsRouter)
 app.use('/overview', OverviewRouter)
+app.use('/track', TrackRouter)
 
 app.use(logger('dev'));
 app.use(express.json());

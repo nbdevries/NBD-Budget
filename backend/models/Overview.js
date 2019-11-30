@@ -28,6 +28,17 @@ var Overview = {
         })
       },
       function (callback) {
+        db.query(`SELECT * FROM obligations`, function(err, result) {
+          if (err) console.log(err);
+
+          let obligationsTotalValue = result.reduce((acc, curr) => {
+            return acc += curr.monthly_total
+          }, 0)
+
+          callback(err, { obligationsTotal: obligationsTotalValue })
+        })
+      },
+      function (callback) {
         db.query(`SELECT * FROM debts`, function(err, result) {
           if (err) console.log(err);
 

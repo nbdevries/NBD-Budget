@@ -9,7 +9,7 @@ const propsToSendDebts = {
 }
 
 const propsToSendDebtOligations = {
-  mainRoute: "debtobligations",
+  mainRoute: "obligations",
   itemName: "Obligations",
   timeFrame: "monthly"
 }

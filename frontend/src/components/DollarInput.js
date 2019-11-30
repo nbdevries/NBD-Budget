@@ -19,8 +19,14 @@ class DollarInput extends Component {
   }
 
   handleChange = (e) => {
+    let newValue = e.target.value
+
     this.setState({
-      value: e.target.value
+      value: newValue
+    }, () => {
+      if (this.props.handleChange) {
+        this.props.handleChange(newValue)
+      }
     })
   }
 
@@ -47,7 +53,7 @@ class DollarInput extends Component {
       border: "none",
       fontSize: "x-large",
       color: "white",
-      width: "100px"
+      width: this.props.width || "100px"
     }
 
     const dollarSignStyle = {

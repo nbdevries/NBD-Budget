@@ -1,10 +1,11 @@
 USE `nbd_budget`;
 
 DROP TABLE IF EXISTS `expense_transactions`;
-DROP TABLE IF EXISTS `expense_categories`;
 DROP TABLE IF EXISTS `expenses`;
+DROP TABLE IF EXISTS `income_transactions`;
 DROP TABLE IF EXISTS `incomes`;
-DROP TABLE IF EXISTS `debt_obligations`;
+DROP TABLE IF EXISTS `obligation_transactions`;
+DROP TABLE IF EXISTS `obligations`;
 DROP TABLE IF EXISTS `debts`;
 
 CREATE TABLE `expenses` (
@@ -14,21 +15,13 @@ CREATE TABLE `expenses` (
 	PRIMARY KEY (`id`)
 );
 
-CREATE TABLE `expense_categories` (
+CREATE TABLE `expense_transactions` (
 	`id` INT AUTO_INCREMENT UNIQUE NOT NULL,
     `expense_id` INT NOT NULL,
     `name` TEXT,
-	PRIMARY KEY (`id`),
-    FOREIGN KEY (`expense_id`) REFERENCES `expenses`(`id`)
-);
-
-CREATE TABLE `expense_transactions` (
-	`id` INT AUTO_INCREMENT UNIQUE NOT NULL,
-    `expense_category_id` INT NOT NULL,
-    `name` TEXT,
     `total` FLOAT,
 	PRIMARY KEY (`id`),
-    FOREIGN KEY (`expense_category_id`) REFERENCES `expense_categories`(`id`)
+    FOREIGN KEY (`expense_id`) REFERENCES `expenses`(`id`)
 );
 
 CREATE TABLE `incomes` (
@@ -38,11 +31,12 @@ CREATE TABLE `incomes` (
 	PRIMARY KEY (`id`)
 );
 
-CREATE TABLE `debt_obligations` (
+CREATE TABLE `income_transactions` (
 	`id` INT AUTO_INCREMENT UNIQUE NOT NULL,
-    `name` TEXT,
-    `monthly_total` FLOAT,
-	PRIMARY KEY (`id`)
+    `income_id` INT,
+    `total` FLOAT,
+	PRIMARY KEY (`id`),
+    FOREIGN KEY (`income_id`) REFERENCES `incomes`(`id`)
 );
 
 CREATE TABLE `debts` (
@@ -50,4 +44,19 @@ CREATE TABLE `debts` (
     `name` TEXT,
     `total` FLOAT,
 	PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `obligations` (
+	`id` INT AUTO_INCREMENT UNIQUE NOT NULL,
+    `name` TEXT,
+    `monthly_total` FLOAT,
+	PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `obligation_transactions` (
+	`id` INT AUTO_INCREMENT UNIQUE NOT NULL,
+    `obligation_id` INT,
+    `total` FLOAT,
+	PRIMARY KEY (`id`),
+    FOREIGN KEY (`obligation_id`) REFERENCES `obligations`(`id`)
 );
